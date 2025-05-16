@@ -8,9 +8,10 @@
             <th>Profile</th>
             <th class="text-end">Actions</th>
         </tr>
-    </thead>
+    </thead> 
     <tbody>
         @forelse($contacts as $contact)
+        @if($contact->is_merged == 0)
         <tr>
             <td class="fw-semibold">
                 {{ $contact->name }}
@@ -62,6 +63,7 @@
                 @endif
             </td>
         </tr>
+        @endif
         @empty
         <tr>
             <td colspan="6" class="text-center text-muted py-3">No contacts found.</td>
